@@ -1,0 +1,11 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+  PREFIX loa: <http://vocab.e.gov.br/2013/09/loa#>
+
+  SELECT ?itemBlankNode ?acaoURI ?dotacaoInicial WHERE 
+  {  
+    ?itemBlankNode loa:temExercicio ?exercicioURI .
+    ?exercicioURI loa:identificador 2014 .
+    ?itemBlankNode loa:temAcao ?acaoURI .
+    ?acaoURI rdf:label "Apoio a Sistemas de Transporte Não-Motorizados".
+    ?itemBlankNode loa:valorDotacaoInicial ?dotacaoInicial .
+  }

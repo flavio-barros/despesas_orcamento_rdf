@@ -1,0 +1,11 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX loa: <http://vocab.e.gov.br/2013/09/loa#>
+
+SELECT ?funcaoLabel(SUM(?ploa) AS ?somaPloa) WHERE 
+{
+	?itemBlankNode loa:temExercicio ?exercicioURI .
+    ?exercicioURI loa:identificador 2012 .
+    ?itemBlankNode loa:temFuncao ?funcaoURI .
+    ?funcaoURI rdf:label ?funcaoLabel .
+    ?itemBlankNode loa:valorProjetoLei ?ploa .
+} GROUP BY ?funcaoLabel ORDER BY ?funcaoLabel

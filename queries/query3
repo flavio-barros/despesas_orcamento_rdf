@@ -1,0 +1,14 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+  PREFIX loa: <http://vocab.e.gov.br/2013/09/loa#>
+
+  SELECT (SUM(?dotacaoInicial) AS ?somaDotacaoInicial) WHERE 
+  {  
+    ?itemBlankNode loa:temExercicio ?exercicioURI .
+    ?exercicioURI loa:identificador 2014 .
+    ?itemBlankNode loa:temGND ?gndURI .
+    ?gndURI loa:codigo "1" .
+    ?itemBlankNode loa:temUnidadeOrcamentaria ?uoURI .
+    ?uoURI loa:temOrgao ?orgaoURI .
+    ?orgaoURI loa:codigo "26000" .
+    ?itemBlankNode loa:valorDotacaoInicial ?dotacaoInicial .
+  }
