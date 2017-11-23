@@ -21,12 +21,11 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		// Direct way: Make a TDB-back Jena model in the named directory.
         String directory = "/home/flavio-barros/triple-store";
         Dataset dataset = TDBFactory.createDataset(directory);
         Model model = dataset.getDefaultModel();
         
-        String queryFile = "query3";
+        String queryFile = "queries/query4";
         
         Query query = QueryFactory.read(queryFile) ;
         try (QueryExecution qexec = QueryExecutionFactory.create(query, model)) {
@@ -34,7 +33,6 @@ public class Main {
           ResultSetFormatter.out(System.out, results, query);
         }
         
-        // Close the dataset.
         dataset.close();
 		
 	}
